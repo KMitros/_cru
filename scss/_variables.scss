@@ -3,14 +3,15 @@
 //all colors
 
 $color-1-0: #0d3351;
-$color-1-1: #33c7fd;
-$color-1-2: #00a2dd;
-$color-1-3: #0099CC;
-$color-1-4: #00a2dd;
+$color-1-1: #00a2dd;
+$color-1-4: lighten($color-1-1, 10%);
+$color-1-2: lighten($color-1-1, 20%);
+$color-1-3: lighten($color-1-1, 35%);
 $color-1-5: #f20542;
 $color-1-6: #f3f3f3;
 $color-1-7: #ffffff;
 $color-1-8: #dfe4e8;
 $color-1-9: #797979;
 
-
+$color-hover: $color-1-2;
+$menu-color: $color-1-0;
