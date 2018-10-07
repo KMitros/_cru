@@ -1,0 +1,40 @@
+.toggle-mnu{
+    font-size: 18px; 
+
+    > .menulist{
+        position: absolute;
+        display: block;
+        opacity: 0;
+        transition: all .6s ease;
+        text-align: left;
+    }
+
+    > .toggle{
+        min-width: 100px;
+        height: 100%;
+    }
+
+    > ._showing{
+            opacity: 1;
+    }   
+
+    &.-mainmnu{
+        font-family: "RobotoSlab";
+        > .menulist{
+            background-color: $menu-color;
+            padding: 60px 0px;
+            width: 420px;
+            box-sizing: border-box;
+        }
+    
+        > .menulist > li{
+            margin: 17px 40px;
+            list-style: none;
+        }
+
+        > .menulist a{
+            text-decoration: none;
+            color: #FFF;
+        }
+    }   
+}

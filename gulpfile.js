@@ -4,7 +4,8 @@ let gulp = require('gulp'),
     browserSync = require('browser-sync'),
     cleancss = require('gulp-clean-css'),
     rename = require('gulp-rename'),
-    glob = require('gulp-sass-glob');
+    glob = require('gulp-sass-glob'),
+    concat = require('gulp-concat');
 
 gulp.task('browser-sync', function(){
         browserSync({
@@ -26,8 +27,19 @@ gulp.task('styles',function(){
     .pipe(browserSync.stream());
 });
 
-gulp.task('watch',['styles','browser-sync'], function(){
+gulp.task('js', function(){
+    return gulp.src([
+        'app/libs/jquery/jquery.min.js',
+        'app/js/common.js'
+    ])
+    .pipe(concat('scripts.min.js'))
+    .pipe(gulp.dest('app/js'))
+    .pipe(browserSync.reload({ stream: true }))
+})
+
+gulp.task('watch',['styles','js','browser-sync'], function(){
     gulp.watch('scss/**/*.scss', ['styles']);
+    gulp.watch('app/js/*.js', ["js"])
     gulp.watch('app/*.html', browserSync.reload)
 
 });
